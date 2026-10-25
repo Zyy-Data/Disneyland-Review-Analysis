@@ -1,0 +1,10 @@
+你是评论标注员。下面是若干条迪士尼乐园的英文评论（JSON 数组，每条有 id 和 text）。
+请对每条评论输出一个 JSON 对象，所有对象放进一个 JSON 数组，字段如下：
+- id：原样返回
+- sentiment：positive / neutral / negative 三选一。依据评论文字表达的整体态度，不要按星级猜。
+- topics：从 queue, price, food, rides_facilities, staff_service, crowd, other 中选 0-3 个，只在评论明确提到时才选。没有就返回空数组 []。
+- evidence：支持你判断的原文短语，不超过 10 个英文词。
+补充规则：
+1. 反讽或讽刺（例如“great, another 2-hour wait”）按真实态度标注，这里应是 negative。
+2. 特别注意混合情感：当评论同时包含明显的优点（如great, amazing）和明显的缺点/抱怨（如expensive, closed, bad weather）时，若无法判断哪种情绪更重，必须输出 neutral。
+只输出 JSON 数组，不要输出任何其他文字，不要使用代码块标记。
